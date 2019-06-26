@@ -1,16 +1,12 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import Routes from './routes';
+import client from './apollo';
 import 'semantic-ui-css/semantic.min.css';
 
 import * as serviceWorker from './serviceWorker';
-
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
-});
 
 const App = (
   <ApolloProvider client={client}>

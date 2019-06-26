@@ -1,5 +1,5 @@
 // @flow
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 export const AllUsers = gql`
   query getAllUsers {
