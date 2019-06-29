@@ -64,6 +64,7 @@ const SideBarList = styled.ul`
 `;
 
 const SideBarListItem = styled.li`
+  padding: 2px;
   ${paddingLeft};
   :hover {
     background: #3e313c;

@@ -1,18 +1,11 @@
 import React from 'react';
 import { Messages, AppLayout } from './ViewTeam.styles';
-import {
-  Channels, Teams, Header, SendMessage,
-} from './components';
+import { Header, SendMessage } from './components';
+import { SideBar } from './container';
 
 const ViewTeam = () => (
   <AppLayout>
-    <Teams teams={[{ id: 0, letter: 'T' }, { id: 1, letter: 'B' }]} />
-    <Channels
-      teamName="TeamName"
-      userName="UserName"
-      channels={[{ id: 0, name: 'general' }, { id: 1, name: 'random' }]}
-      users={[{ id: 0, name: 'slack-bot' }, { id: 1, name: 'jack' }]}
-    />
+    <SideBar currentTeamId={3} />
     <Header channelName="general" />
     <Messages>
       <ul className="message-list">
