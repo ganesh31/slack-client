@@ -1,23 +1,26 @@
 import React from 'react';
+import { Messages, AppLayout } from './ViewTeam.styles';
 import {
-  Channels, Teams, Header, Messages, Input, AppLayout,
-} from './ViewTeam.styles';
-// import { Test } from './ViewTeam.styles';
+  Channels, Teams, Header, SendMessage,
+} from './components';
 
 const ViewTeam = () => (
   <AppLayout>
-    <Teams>Teams</Teams>
-    <Channels>Channels</Channels>
-    <Header>Header</Header>
+    <Teams teams={[{ id: 0, letter: 'T' }, { id: 1, letter: 'B' }]} />
+    <Channels
+      teamName="TeamName"
+      userName="UserName"
+      channels={[{ id: 0, name: 'general' }, { id: 1, name: 'random' }]}
+      users={[{ id: 0, name: 'slack-bot' }, { id: 1, name: 'jack' }]}
+    />
+    <Header channelName="general" />
     <Messages>
       <ul className="message-list">
         <li />
         <li />
       </ul>
     </Messages>
-    <Input>
-      <input type="text" placeholder="CSS Grid Layout Module" />
-    </Input>
+    <SendMessage channelName="general" />
   </AppLayout>
 );
 
