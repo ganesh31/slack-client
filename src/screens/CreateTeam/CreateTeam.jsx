@@ -13,11 +13,17 @@ const CreateTeam = ({ createTeam, history }) => {
   const [errors, setErrors] = useState([]);
 
   const handleCreateTeam = async () => {
-    const response = await createTeam({
-      variables: {
-        name,
-      },
-    });
+    let response = null;
+    try {
+      response = await createTeam({
+        variables: {
+          name,
+        },
+      });
+    } catch (err) {
+      history.push('/login');
+      return;
+    }
     const { ok, errors: fieldErrors } = response.data.createTeam;
     if (!ok) {
       setErrors(fieldErrors);
@@ -43,7 +49,9 @@ const CreateTeam = ({ createTeam, history }) => {
             fluid
           />
         </Form.Field>
-        <Button primary onClick={handleCreateTeam} disabled={name === ''}>Create Team</Button>
+        <Button primary onClick={handleCreateTeam} disabled={name === ''}>
+          Create Team
+        </Button>
       </Form>
     </Container>
   );
