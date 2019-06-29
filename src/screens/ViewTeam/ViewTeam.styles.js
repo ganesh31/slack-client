@@ -5,11 +5,6 @@ export const Messages = styled.div`
   grid-row: 2;
 `;
 
-export const Input = styled.div`
-  grid-column: 3;
-  grid-row: 3;
-`;
-
 export const AppLayout = styled.div`
   display: grid;
   height: 100vh;

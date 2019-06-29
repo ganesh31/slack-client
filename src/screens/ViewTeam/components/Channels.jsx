@@ -7,27 +7,35 @@ const Channels = ({
 }) => (
   <StyledChannels>
     <div>
-      {teamName}
-      {userName}
+      <PushLeft>
+        <TeamNameHeader>{teamName}</TeamNameHeader>
+        {userName}
+      </PushLeft>
     </div>
     <div>
-      <ul>
-        <li>Channels</li>
+      <SideBarList>
+        <SideBarListHeader>Channels</SideBarListHeader>
         {channels.map(({ id, name }) => (
-          <li key={`channel-${id}`}>{`# ${name}`}</li>
+          <SideBarListItem key={`channel-${id}`}>{`# ${name}`}</SideBarListItem>
         ))}
-      </ul>
+      </SideBarList>
     </div>
     <div>
-      <ul>
-        <li>Direct Messages</li>
+      <SideBarList>
+        <SideBarListHeader>Direct Messages</SideBarListHeader>
         {users.map(({ id, name }) => (
-          <li key={`user-${id}`}>{name}</li>
+          <SideBarListItem key={`user-${id}`}>
+            <Bubble />
+            {' '}
+            {name}
+          </SideBarListItem>
         ))}
-      </ul>
+      </SideBarList>
     </div>
   </StyledChannels>
 );
+
+const paddingLeft = 'padding-left: 10px';
 
 const StyledChannels = styled.div`
   grid-column: 2;
@@ -35,6 +43,39 @@ const StyledChannels = styled.div`
   background-color: #4e3a4c;
   color: #958993;
 `;
+
+const PushLeft = styled.div`
+  ${paddingLeft};
+`;
+
+const SideBarListHeader = styled.li`
+  ${paddingLeft};
+`;
+
+const TeamNameHeader = styled.h1`
+  color: #ffffff;
+  font-size: 20px;
+`;
+
+const SideBarList = styled.ul`
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+`;
+
+const SideBarListItem = styled.li`
+  ${paddingLeft};
+  :hover {
+    background: #3e313c;
+  }
+`;
+
+const Green = styled.span`
+  color: #38978d;
+`;
+
+// eslint-disable-next-line react/prop-types
+const Bubble = ({ on = true }) => (on ? <Green>●</Green> : '○');
 
 export default Channels;
 

@@ -12,6 +12,7 @@ const SendMessage = ({ channelName }) => (
 const StyledSendMessage = styled.div`
   grid-column: 3;
   grid-row: 3;
+  margin: 20px;
 `;
 
 SendMessage.propTypes = {
